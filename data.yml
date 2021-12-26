@@ -5,4 +5,4 @@ pages:
     content: >
       <p> Это тестовый контент </p>
       <h2>test</h2>
-      
+      <pre><code class="language-bash">$ echo "Hello world!"</code></pre>

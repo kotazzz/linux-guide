@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            padding-top: 56px;
+            margin-top: -56px;
+        }
+    </style>
+    <title>Котянка</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <a class="navbar-brand px-5" href="#top">Начало</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <!---->
+
+                <li class="nav-item active">
+                    <div class="dropdown show">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Инфо
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#info">Информация</a>
+                            <a class="dropdown-item" href="#tasks">Задачи</a>
+                            <a class="dropdown-item" href="#history">История изменений</a>
+                            <a class="dropdown-item" href="#progress">Прогресс</a>
+                        </div>
+                    </div>
+                </li>
+               
+
+                <!---->
+            </ul>
+            <span class="navbar-muted">
+                <!--! 
+                repo = Repo(search_parent_directories=True)
+                raw_data = list(repo.iter_commits("master", max_count=10000))
+                last, first = raw_data[0], raw_data[-1]
+                week= datetime.fromtimestamp(last.authored_date).strftime('%W')
+                day = datetime.fromtimestamp(last.authored_date).strftime('%j')
+                ddays = datetime.fromtimestamp(last.authored_date-first.authored_date).strftime('%d')
+                commit_count = len(raw_data)
+                custom = f'R{week}W{day}D{ddays}DD.{commit_count}CC'
+                normal = f'1.{week}.{commit_count}b'
+                return f'Котянка {normal} ({custom})'
+                -->
+            </span>
+        </div>
+    </nav>
+    <h1>.</h1>
+    <div class="container py-4">
+        <div id="top">
+            <h1>Котянка</h1>
+
+            <h3 id="info">Информация</h3>
+            <ul>
+                <li><b>Письменность:</b> Консонантно-Вокалическая</li>
+                <li><b>Ударение:</b> предпоследний слог</li>
+                <!--!
+                return f"""
+                <li><b>Количество слов в словаре:</b> {len(yaml['dict'])}</li>
+                <li><b>Количество тегов:</b> {len(yaml['tags'])}</li>
+                <li><b>Количество категорий примеров:</b> {len(yaml['examples'])}</li>
+                <li><b>Количество примеров:</b> {sum([len(i) for i in yaml['examples'].values()])}</li>
+                """
+                -->
+            </ul>
+            <h3 id="tasks">Список задач</h3>
+            <!--!
+            data = [
+                ["Язык", "Проблема совершенного вида настоящего времени", "23.12"],
+                ["Сайт", "Словари с значениями корня, поиск по регистрации", "25.12"],
+                ["Язык", "Числительные", "25.12"],
+                ["Сайт", "Расширеный поиск и сортировка", "25.12"],
+                [
+                    "Сайт",
+                    "Программная регистрация словарей и создание статей по тематике",
+                    "25.12",
+                ],
+            ]
+
+            return (
+                '<div class="card-columns">'
+                + "".join(
+                    [
+                        f"""
+                    
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{title}</h5>
+                                <p class="card-text">{text}</p>
+                                <p class="card-text"><small class="text-muted">{date}</small></p>
+                            </div>
+                        </div>
+                    """
+                        for title, text, date in data
+                    ]
+                )
+                + "</div>"
+            )
+            -->
+            <h3 id="history">История изменений</h3>
+            <!--!
+            repo = Repo(search_parent_directories=True)
+            raw_data = list(repo.iter_commits("master", max_count=100))
+            date_prepare = lambda d: datetime.fromtimestamp(d).strftime('%A %d.%m.%Y %H:%M:%S')
+            data = [[str(c.author), c.message, str(c.hexsha), date_prepare(c.authored_date)] for c in raw_data]
+            return (
+                """
+            <table class="table table-sm table-light table-hover table-bordered">
+                <thead>
+                    <th>Автор</th>
+                    <th>Сообщение</th>
+                    <th>Hash</th>
+                    <th>Дата</th>
+                </thead>"""
+                + "".join(
+                    [
+                        f"""
+                <tr>
+                    <td>{author}</td>
+                    <td>{message}</td>
+                    <td><code>{hash}</code></td>
+                    <td>{date}</td>
+                </tr>
+            """
+                        for author, message, hash, date in data
+                    ]
+                )
+                + "</table>"
+            )
+            -->
+            <h3 id="progress">Прогресс</h3>
+            <p>Информация: <span class="badge badge-success">Завершено</span><span class="badge badge-warning">Прогресс</span><span class="badge badge-secondary">Неизвестно</span></p>
+            <!--!
+                data = {
+                    'Словари':[10, 15],
+                    'Фонетика':[10, 5],
+                    'Грамматика':[25, 25],
+                    'Документация':[35,35],
+                    'Алфавит':[5,5],
+                }
+                return '<ul>' + ''.join([f'''
+                    <li>{name}: <div class="progress">
+                        <div class="progress-bar bg-success" style="width: {done}%"></div>
+                        <div class="progress-bar bg-warning" style="width: {plan}%"></div>
+                    </div>
+                </li>
+                ''' for name, done, plan in [[k, v[0], v[1]] for k,v in data.items()]])+ '</ul>'
+            -->
+
+
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+
+            <script>
+                $(document).ready(function() {
+
+                    (function($) {
+
+                        $('#filter').keyup(function() {
+
+                            var rex = new RegExp($(this).val(), 'i');
+                            $('.searchable tr').hide();
+                            $('.searchable tr').filter(function() {
+                                return rex.test($(this).text());
+                            }).show();
+
+                        })
+
+                    }(jQuery));
+
+                });
+            </script>
+
+        </div>
+</body>
+
+</html>

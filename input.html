@@ -120,12 +120,11 @@
             repo = Repo(search_parent_directories=True)
             raw_data = list(repo.iter_commits("master", max_count=100))
             date_prepare = lambda d: datetime.fromtimestamp(d).strftime('%A %d.%m.%Y %H:%M:%S')
-            data = [[str(c.author), c.message, str(c.hexsha), date_prepare(c.authored_date)] for c in raw_data]
+            data = [[c.message, str(c.hexsha), date_prepare(c.authored_date)] for c in raw_data]
             return (
                 """
             <table class="table table-sm table-light table-hover table-bordered">
                 <thead>
-                    <th>Автор</th>
                     <th>Сообщение</th>
                     <th>Hash</th>
                     <th>Дата</th>
@@ -134,13 +133,12 @@
                     [
                         f"""
                 <tr>
-                    <td>{author}</td>
                     <td>{message}</td>
                     <td><code>{hash}</code></td>
                     <td>{date}</td>
                 </tr>
             """
-                        for author, message, hash, date in data
+                        for message, hash, date in data
                     ]
                 )
                 + "</table>"

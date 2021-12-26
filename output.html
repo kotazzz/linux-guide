@@ -56,18 +56,7 @@
                 <!---->
             </ul>
             <span class="navbar-muted">
-                <!--! 
-                repo = Repo(search_parent_directories=True)
-                raw_data = list(repo.iter_commits("master", max_count=10000))
-                last, first = raw_data[0], raw_data[-1]
-                week= datetime.fromtimestamp(last.authored_date).strftime('%W')
-                day = datetime.fromtimestamp(last.authored_date).strftime('%j')
-                ddays = datetime.fromtimestamp(last.authored_date-first.authored_date).strftime('%d')
-                commit_count = len(raw_data)
-                custom = f'R{week}W{day}D{ddays}DD.{commit_count}CC'
-                normal = f'1.{week}.{commit_count}b'
-                return f'Linux Guide {normal} ({custom})'
-                -->
+                Linux Guide 1.51.1b (R51W360D01DD.1CC)
             </span>
         </div>
     </nav>
@@ -88,84 +77,64 @@
                 и подсветка ключевых слов. Часть информации может браться с открытых источников.
             </p>
             <h2 id="tasks">Список задач</h2>
-            <!--!
-            data = [
-                ["Гайд", "Написание базовых концепций в гайде", "26.12"],
-                ["Сайт", "Составить тестовую статью, хранимую в дата-секции", "26.12"],
-                ["Сайт", "Добавить поддержку кодовых блоков", "26.12"],
-            ]
-
-            return (
-                '<div class="card-columns">'
-                + "".join(
-                    [
-                        f"""
+            <div class="card-columns">
                     
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">{title}</h5>
-                                <p class="card-text">{text}</p>
-                                <p class="card-text"><small class="text-muted">{date}</small></p>
+                                <h5 class="card-title">Гайд</h5>
+                                <p class="card-text">Написание базовых концепций в гайде</p>
+                                <p class="card-text"><small class="text-muted">26.12</small></p>
                             </div>
                         </div>
-                    """
-                        for title, text, date in data
-                    ]
-                )
-                + "</div>"
-            )
-            -->
+                    
+                    
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Сайт</h5>
+                                <p class="card-text">Составить тестовую статью, хранимую в дата-секции</p>
+                                <p class="card-text"><small class="text-muted">26.12</small></p>
+                            </div>
+                        </div>
+                    
+                    
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Сайт</h5>
+                                <p class="card-text">Добавить поддержку кодовых блоков</p>
+                                <p class="card-text"><small class="text-muted">26.12</small></p>
+                            </div>
+                        </div>
+                    </div>
             <h2 id="history">История изменений</h2>
-            <!--!
-            repo = Repo(search_parent_directories=True)
-            raw_data = list(repo.iter_commits("master", max_count=100))
-            date_prepare = lambda d: datetime.fromtimestamp(d).strftime('%A %d.%m.%Y %H:%M:%S')
-            data = [[str(c.author), c.message, str(c.hexsha), date_prepare(c.authored_date)] for c in raw_data]
-            return (
-                """
+            
             <table class="table table-sm table-light table-hover table-bordered">
                 <thead>
                     <th>Автор</th>
                     <th>Сообщение</th>
                     <th>Hash</th>
                     <th>Дата</th>
-                </thead>"""
-                + "".join(
-                    [
-                        f"""
+                </thead>
                 <tr>
-                    <td>{author}</td>
-                    <td>{message}</td>
-                    <td><code>{hash}</code></td>
-                    <td>{date}</td>
+                    <td>Kotaz</td>
+                    <td>Иницилизация
+</td>
+                    <td><code>f533791ec6d66a2b2f134c588685316417689f41</code></td>
+                    <td>Sunday 26.12.2021 21:50:24</td>
                 </tr>
-            """
-                        for author, message, hash, date in data
-                    ]
-                )
-                + "</table>"
-            )
-            -->
+            </table>
             <h2 id="progress">Прогресс</h2>
             
             <p>Информация: <span class="badge badge-success">Завершено</span><span class="badge badge-warning">Прогресс</span><span class="badge badge-secondary">Неизвестно</span></p>
-            <!--!
-                data = {
-                    'Гайд':[3, 30],
-                }
-                return '<ul>' + ''.join([f'''
-                    <li>{name}: <div class="progress">
-                        <div class="progress-bar bg-success" style="width: {done}%"></div>
-                        <div class="progress-bar bg-warning" style="width: {plan}%"></div>
+            <ul>
+                    <li>Гайд: <div class="progress">
+                        <div class="progress-bar bg-success" style="width: 3%"></div>
+                        <div class="progress-bar bg-warning" style="width: 30%"></div>
                     </div>
                 </li>
-                ''' for name, done, plan in [[k, v[0], v[1]] for k,v in data.items()]])+ '</ul>'
-            -->
+                </ul>
             <h2 id="main">Основное</h2>
-            <!--!
-            for name, anch, date, content in [i.values() for i in yaml['pages']]:
-                return f'''<h2 id="{anch}">{name} <span class="badge badge-pill badge-primary">{date}</span></h2>{content}'''
-            -->
+            <h2 id="abc">Linux - определение <span class="badge badge-pill badge-primary">26.12</span></h2><p> Это тестовый контент </p> <h2>test</h2>
+
 
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->

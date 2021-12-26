@@ -1,1 +1,8 @@
-[0]
+pages:
+  - name: Linux - определение
+    anchor: abc
+    date: 26.12
+    content: >
+      <p> Это тестовый контент </p>
+      <h2>test</h2>
+      

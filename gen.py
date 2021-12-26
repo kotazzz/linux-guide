@@ -11,18 +11,6 @@ rawl = open("data.yml").read()
 yaml = yaml.safe_load(rawl)
 
 
-def generate_table(data):
-    pass
-
-
-def wrap_word(word):
-    pass
-
-
-def wrap_sentence(phrase):
-    pass
-
-
 class DataReHandler:
     n = 0
 
@@ -48,5 +36,5 @@ while True:
     else:
         break
 
-with open("output.html", "w", encoding="utf-8") as output_file:
+with open("index.html", "w", encoding="utf-8") as output_file:
     output_file.write(html)

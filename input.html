@@ -47,6 +47,20 @@
                     </div>
                 </li>
                 <li class="nav-item active">
+                    <div class="dropdown show">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Статьи
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            
+                            <!--!
+                            for name, anch, date, content in [i.values() for i in yaml['pages']]:
+                                return f'''<a class="dropdown-item" href="#{anch}">{name} <span class="badge badge-pill badge-primary">{date}</a>'''
+                            -->
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="#main">
                         Начало
                     </a>
@@ -160,11 +174,41 @@
                 ''' for name, done, plan in [[k, v[0], v[1]] for k,v in data.items()]])+ '</ul>'
             -->
             <h2 id="main">Основное</h2>
+            
             <!--!
             for name, anch, date, content in [i.values() for i in yaml['pages']]:
+                for placeholder, tname, tip, tcontent in [i.values() for i in yaml['dict']]:
+                    content = content.replace(placeholder, f'''
+                    <span class='text-primary' data-toggle="tooltip" data-html="true" title="{tip}">{tname}</span>
+                    ''')
                 return f'''<h2 id="{anch}">{name} <span class="badge badge-pill badge-primary">{date}</span></h2>{content}'''
             -->
-
+            <h2 id="dict">Словарь</h2>
+            <!--!
+            return (
+                """
+            <table class="table table-sm table-light table-hover table-bordered">
+                <thead>
+                    <th>Определение</th>
+                    <th>Значение</th>
+                </thead>"""
+                + "".join(
+                    [
+                        f"""
+                <tr>
+                    <td><code>{tname}</code></td>
+                    <td>{tcontent}</td>
+                </tr>
+            """
+                        for placeholder, tname, tip, tcontent in [i.values() for i in yaml['dict']]
+                    ]
+                )
+                + "</table>"
+            )
+            
+                
+            -->
+            
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
             
@@ -176,6 +220,9 @@
             <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 
             <script>
+                $(function () {
+                    $('[data-toggle="tooltip"]').tooltip()
+                })
                 $(document).ready(function() {
 
                     (function($) {

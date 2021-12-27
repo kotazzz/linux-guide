@@ -3,6 +3,14 @@ pages:
     anchor: abc
     date: 26.12
     content: >
-      <p> Это тестовый контент </p>
-      <h2>test</h2>
+      <p> Это тестовый контент тестовое_определение тестовое_определение</p>
+      
       <pre><code class="language-bash">$ echo "Hello world!"</code></pre>
+
+dict:
+  - placeholder: тестовое_определение
+    name: тестовое определение
+    tip: это тестовое определение
+    content: >
+      <p>это длинное описание тестового определения</p>
+    

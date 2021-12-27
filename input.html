@@ -46,6 +46,13 @@
                         </div>
                     </div>
                 </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#main">
+                        Начало
+                    </a>
+                </li>
+
                 <li class="nav-item active">
                     <div class="dropdown show">
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,18 +61,19 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             
                             <!--!
+                            res = ''
                             for name, anch, date, content in [i.values() for i in yaml['pages']]:
-                                return f'''<a class="dropdown-item" href="#{anch}">{name} <span class="badge badge-pill badge-primary">{date}</a>'''
+                                res += f'''<a class="dropdown-item" href="#{anch}">{name} <span class="badge badge-pill badge-primary">{date}</a>'''
+                            return res
                             -->
                         </div>
                     </div>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#main">
-                        Начало
+                    <a class="nav-link" href="#dict">
+                        Словарь
                     </a>
                 </li>
-                
                
 
                 <!---->
@@ -160,7 +168,12 @@
             -->
             <h2 id="progress">Прогресс</h2>
             
-            <p>Информация: <span class="badge badge-success">Завершено</span><span class="badge badge-warning">Прогресс</span><span class="badge badge-secondary">Неизвестно</span></p>
+            <p>
+                Информация: 
+                <span class="badge badge-success">Завершено</span>
+                <span class="badge badge-warning">Прогресс</span>
+                <span class="badge badge-secondary">Неизвестно</span>
+            </p>
             <!--!
                 data = {
                     'Гайд':[3, 30],

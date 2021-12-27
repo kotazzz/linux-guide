@@ -205,6 +205,12 @@
                     content = content.replace(placeholder, f'''
                     <span data-toggle="tooltip" data-html="true" title="{tip}">{tname}</span>
                     ''')
+                for placeholder, file, capture in [i.values() for i in yaml['images']]:
+                    content = content.replace(placeholder, f'''
+                    
+                        <img src="{file}" class="rounded" style='height: 250px;'alt="{name}">
+                        <small>{name}</small>
+                    ''')
                 res+= f'''<h3 id="{anch}">{name} <span class="badge badge-pill badge-primary">{date}</span></h3>{content}'''
             return res
             -->

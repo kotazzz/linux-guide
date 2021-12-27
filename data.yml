@@ -3,6 +3,7 @@ pages:
     anchor: page0
     date: 26.12
     content: >
+      {Linux}
       <p>Стоит сразу отметить, что вашим другом станет Терминал. Терминал — это
       программа, которая используется для взаимодействия с шеллом. Это просто
       интерфейс к нему и другим программам командной строки, которые работают
@@ -54,6 +55,12 @@ shortcuts:
   - placeholder: '%Tab'
     name: <kbd>Tab ↹</kbd>
     tip: 
+
+images:
+  - placeholder: '{Linux}'
+    file: images/linux.png
+    capture: Пингвин
+
 dict:
   - placeholder: '[Linux]'
     name: Linux

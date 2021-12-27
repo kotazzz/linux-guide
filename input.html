@@ -176,15 +176,27 @@
             <h2 id="main">Основное</h2>
             
             <!--!
+            res = ''
             for name, anch, date, content in [i.values() for i in yaml['pages']]:
                 for placeholder, tname, tip, tcontent in [i.values() for i in yaml['dict']]:
                     content = content.replace(placeholder, f'''
                     <span class='text-primary' data-toggle="tooltip" data-html="true" title="{tip}">{tname}</span>
                     ''')
-                return f'''<h2 id="{anch}">{name} <span class="badge badge-pill badge-primary">{date}</span></h2>{content}'''
+                for placeholder, tname, tip in [i.values() for i in yaml['shortcuts']]:
+                    content = content.replace(placeholder, f'''
+                    <span data-toggle="tooltip" data-html="true" title="{tip}">{tname}</span>
+                    ''')
+                res+= f'''<h3 id="{anch}">{name} <span class="badge badge-pill badge-primary">{date}</span></h3>{content}'''
+            return res
             -->
             <h2 id="dict">Словарь</h2>
             <!--!
+            def rep(content):
+                for placeholder, tname, tip in [i.values() for i in yaml['shortcuts']]:
+                    content = content.replace(placeholder, f'''
+                    <span data-toggle="tooltip" data-html="true" title="{tip}">{tname}</span>
+                    ''')
+                return content
             return (
                 """
             <table class="table table-sm table-light table-hover table-bordered">
@@ -197,7 +209,7 @@
                         f"""
                 <tr>
                     <td><code>{tname}</code></td>
-                    <td>{tcontent}</td>
+                    <td>{rep(tcontent)}</td>
                 </tr>
             """
                         for placeholder, tname, tip, tcontent in [i.values() for i in yaml['dict']]

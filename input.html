@@ -192,7 +192,7 @@
                 </li>
                 ''' for name, done, plan in [[k, v[0], v[1]] for k,v in data.items()]])+ '</ul>'
             -->
-            <h2 id="main">Основное</h2>
+            <h1 id="main">Основное</h1>
             
             <!--!
             res = ''
@@ -211,7 +211,7 @@
                         <img src="{file}" class="rounded" style='height: 250px;'alt="{capture}">
                         <small>{capture}</small>
                     ''')
-                res+= f'''<h3 id="{anch}">{name} <span class="badge badge-pill badge-primary">{date}</span></h3>{content}'''
+                res+= f'''<h2 id="{anch}">{name} <span class="badge badge-pill badge-primary">{date}</span></h2>{content}'''
             return res
             -->
             <h2 id="dict">Словарь</h2>

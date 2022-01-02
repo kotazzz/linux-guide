@@ -1,4 +1,9 @@
 pages:
+  - name: Статьи в разработке
+    anchor: page983522
+    date: 02.01
+    content: |
+      Тут будут перечислены статьи, которых не хватает в гайде
   - name: Установка Manjaro
     anchor: page98352
     date: 27.12
